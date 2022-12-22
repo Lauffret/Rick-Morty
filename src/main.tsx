@@ -10,13 +10,11 @@ import { ApplicationState } from './store'
 import LayoutContainer from './containers/LayoutContainer'
 import * as themes from './styles/theme'
 
-// Any additional component props go here.
 interface MainProps {
   store: Store<ApplicationState>
   history: History
 }
 
-// Create an intersection type of the component props and our Redux props.
 const Main: React.FC<MainProps> = ({ store, history }) => {
   return (
     <Provider store={store}>
@@ -33,7 +31,4 @@ const Main: React.FC<MainProps> = ({ store, history }) => {
   )
 }
 
-// Normally you wouldn't need any generics here (since types infer from the passed functions).
-// But since we pass some props from the `index.js` file, we have to include them.
-// For an example of a `connect` function without generics, see `./containers/LayoutContainer`.
 export default Main
