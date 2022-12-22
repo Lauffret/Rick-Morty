@@ -16,11 +16,11 @@ export interface Character extends ApiResponse {
 export type ApiResponse = Record<string, any>
 
 export enum CharactersActionTypes {
-  FETCH_REQUEST = '@@heroes/FETCH_REQUEST',
-  FETCH_SUCCESS = '@@heroes/FETCH_SUCCESS',
-  FETCH_ERROR = '@@heroes/FETCH_ERROR',
-  SELECT_HERO = '@@heroes/SELECT_HERO',
-  SELECTED = '@@heroes/SELECTED'
+  FETCH_REQUEST = '@@characters/FETCH_REQUEST',
+  FETCH_SUCCESS = '@@characters/FETCH_SUCCESS',
+  FETCH_ERROR = '@@characters/FETCH_ERROR',
+  SELECT_CHARACTER = '@@characters/SELECT_CHARACTER',
+  SELECTED = '@@characters/SELECTED'
 }
 
 export interface CharactersState {

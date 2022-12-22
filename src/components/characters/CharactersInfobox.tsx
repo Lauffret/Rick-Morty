@@ -2,7 +2,7 @@ import { darken } from 'polished'
 
 import styled from '../../utils/styled'
 
-export const HeroInfobox = styled('div')`
+export const CharacterInfobox = styled('div')`
   position: relative;
   background: rgba(0, 0, 0, 0.9);
   overflow: hidden;
@@ -10,7 +10,7 @@ export const HeroInfobox = styled('div')`
   color: ${props => darken(0.25, props.theme.colors.white)};
 `
 
-export const HeroInfoboxBlurBackground = styled('img')`
+export const CharacterInfoboxBlurBackground = styled('img')`
   position: absolute;
   top: -12.5%;
   left: -12.5%;
@@ -23,7 +23,7 @@ export const HeroInfoboxBlurBackground = styled('img')`
   z-index: 1;
 `
 
-export const HeroInfoboxInner = styled('div')`
+export const CharacterInfoboxInner = styled('div')`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -31,13 +31,12 @@ export const HeroInfoboxInner = styled('div')`
   padding: 3rem;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 0px 125px inset;
   z-index: 2;
-
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     flex-direction: row;
   }
 `
 
-export const HeroInfoboxImage = styled('img')`
+export const CharacterInfoboxImage = styled('img')`
   display: block;
   flex-shrink: 0;
   width: 180px;
@@ -51,30 +50,28 @@ export const HeroInfoboxImage = styled('img')`
   border-image: initial;
 `
 
-export const HeroInfoboxHeading = styled('div')`
+export const CharacterInfoboxHeading = styled('div')`
   flex: 1 1 100%;
   margin: 1.5rem 0 0;
   text-align: center;
-
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     margin: 0 1.5rem;
     text-align: left;
   }
 `
 
-export const HeroName = styled('h1')`
+export const CharacterName = styled('h1')`
   margin: 0;
   color: ${props => props.theme.colors.white};
   font-weight: 500;
 `
 
-export const HeroRoles = styled('p')`
+export const CharacterRoles = styled('p')`
   margin: 0.5rem 0 0;
   color: ${props => props.theme.colors.white};
   font-size: 0.8rem;
   letter-spacing: 1px;
   text-transform: uppercase;
-
   & span {
     color: ${props => darken(0.25, props.theme.colors.white)};
   }

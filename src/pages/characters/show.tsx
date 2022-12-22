@@ -10,9 +10,9 @@ import {
   CharacterInfoboxBlurBackground,
   CharacterName,
   CharacterRoles
-} from '../../components/characters/CharacterInfobox'
-import { CharacterStats, CharacterStatsInner, StatAttribute, Bullet } from '../../components/characters/CharacterStats'
-import { CharacterDetails, CharacterDetailsColumn, CharacterDetailsRow, CharacterDetailsAttrName } from '../../components/characters/CharacterDetails'
+} from '../../components/characters/CharactersInfobox'
+import { CharacterStats, CharacterStatsInner, StatAttribute, Bullet } from '../../components/characters/CharactersStats'
+import { CharacterDetails, CharacterDetailsColumn, CharacterDetailsRow, CharacterDetailsAttrName } from '../../components/characters/CharactersDetails'
 import Page from '../../components/layout/Page'
 import Container from '../../components/layout/Container'
 
@@ -82,7 +82,7 @@ class ShowCharactersPage extends React.Component<AllProps, State> {
             )}
             {selected && (
               <>
-                <CharacterInfobox>
+                {/* <CharacterInfobox>
                   <CharacterInfoboxBlurBackground src={API_ENDPOINT + selected.img} />
                   <CharacterInfoboxInner>
                     <CharacterInfoboxImage src={API_ENDPOINT + selected.img} />
@@ -158,7 +158,7 @@ class ShowCharactersPage extends React.Component<AllProps, State> {
                       <CharacterDetailsAttrName>CM Enabled:</CharacterDetailsAttrName> {selected.cm_enabled ? 'yes' : 'no'}
                     </CharacterDetailsRow>
                   </CharacterDetailsColumn>
-                </CharacterDetails>
+                </CharacterDetails> */}
               </>
             )}
           </Wrapper>

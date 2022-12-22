@@ -1,20 +1,19 @@
 import styled from '../../utils/styled'
 
-export const HeroStats = styled('div')`
+export const CharacterStats = styled('div')`
   display: block;
   max-width: 340px;
   margin: 1.5rem 0 0;
   background: rgba(0, 0, 0, 0.45);
   border-radius: 8px;
   padding: 12px;
-
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     margin: 0;
     flex: 1 0 340px;
   }
 `
 
-export const HeroStatsInner = styled('div')`
+export const CharacterStatsInner = styled('div')`
   display: flex;
 `
 
