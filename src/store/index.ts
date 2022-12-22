@@ -6,7 +6,7 @@ import { History } from 'history'
 import { LayoutState, layoutReducer } from './layout'
 
 import CharactersSaga from './characters/sagas'
-import { CharactersReducer } from './characters/reducer'
+import { charactersReducer } from './characters/reducer'
 import { CharactersState } from './characters/types'
 import teamsSaga from './teams/sagas'
 import { TeamsState } from './teams/types'
@@ -14,7 +14,7 @@ import { teamsReducer } from './teams/reducer'
 
 export interface ApplicationState {
   layout: LayoutState
-  Characters: CharactersState
+  characters: CharactersState
   teams: TeamsState
   router: RouterState
 }
@@ -22,7 +22,7 @@ export interface ApplicationState {
 export const createRootReducer = (history: History) =>
   combineReducers({
     layout: layoutReducer,
-    Characters: CharactersReducer,
+    characters: charactersReducer,
     teams: teamsReducer,
     router: connectRouter(history)
   })

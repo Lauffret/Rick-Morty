@@ -24,4 +24,4 @@ const reducer: Reducer<CharactersState> = (state = initialState, action) => {
   }
 }
 
-export { reducer as CharactersReducer }
+export { reducer as charactersReducer }
