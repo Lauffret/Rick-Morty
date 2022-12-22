@@ -11,12 +11,12 @@ import LoadingOverlayInner from '../../components/data/LoadingOverlayInner'
 import LoadingSpinner from '../../components/data/LoadingSpinner'
 
 import { ApplicationState } from '../../store'
-import { Hero } from '../../store/heroes/types'
-import { fetchRequest } from '../../store/heroes/actions'
+import { Character } from '../../store/characters/types'
+import { fetchRequest } from '../../store/characters/actions'
 
 interface PropsFromState {
   loading: boolean
-  data: Hero[]
+  data: Character[]
   errors?: string
 }
 
@@ -26,9 +26,9 @@ interface PropsFromDispatch {
 
 type AllProps = PropsFromState & PropsFromDispatch
 
-const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT || 'https://api.opendota.com'
+const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT || 'https://rickandmortyapi.com/api/'
 
-class HeroesIndexPage extends React.Component<AllProps> {
+class CharactersIndexPage extends React.Component<AllProps> {
   public componentDidMount() {
     const { fetchRequest: fr } = this.props
     fr()
@@ -38,24 +38,24 @@ class HeroesIndexPage extends React.Component<AllProps> {
     const { loading, data } = this.props
 
     return (
-      <DataTable columns={['Hero', 'Pro Picks/Bans*', 'Pro Wins*']} widths={['auto', '', '']}>
+      <DataTable columns={['Personnage', 'Pro Picks/Bans*', 'Pro Wins*']} widths={['auto', '', '']}>
         {loading && data.length === 0 && (
-          <HeroLoading>
+          <CharacterLoading>
             <td colSpan={3}>Loading...</td>
-          </HeroLoading>
+          </CharacterLoading>
         )}
-        {data.map(hero => (
-          <tr key={hero.id}>
-            <HeroDetail>
-              <HeroIcon src={API_ENDPOINT + hero.icon} alt={hero.name} />
-              <HeroName>
-                <Link to={`/heroes/${hero.name}`}>{hero.localized_name}</Link>
-              </HeroName>
-            </HeroDetail>
+        {data.map(character => (
+          <tr key={character.id}>
+            <CharacterDetail>
+              <CharacterIcon src={API_ENDPOINT + character.img} alt={character.name} />
+              <CharacterName>
+                <Link to={`/characters/${character.id}`}>{character.name}</Link>
+              </CharacterName>
+            </CharacterDetail>
             <td>
-              {hero.pro_pick || 0} / {hero.pro_ban || 0}
+              {character.pro_pick || 0} / {character.pro_ban || 0}
             </td>
-            <td>{hero.pro_win || 0}</td>
+            <td>{character.pro_win || 0}</td>
           </tr>
         ))}
       </DataTable>
@@ -87,10 +87,10 @@ class HeroesIndexPage extends React.Component<AllProps> {
   }
 }
 
-const mapStateToProps = ({ heroes }: ApplicationState) => ({
-  loading: heroes.loading,
-  errors: heroes.errors,
-  data: heroes.data
+const mapStateToProps = ({ characters }: ApplicationState) => ({
+  loading: characters.loading,
+  errors: characters.errors,
+  data: characters.data
 })
 
 const mapDispatchToProps = {
@@ -100,7 +100,7 @@ const mapDispatchToProps = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(HeroesIndexPage)
+)(CharactersIndexPage)
 
 const TableWrapper = styled('div')`
   position: relative;
@@ -109,18 +109,18 @@ const TableWrapper = styled('div')`
   min-height: 200px;
 `
 
-const HeroDetail = styled('td')`
+const CharacterDetail = styled('td')`
   display: flex;
   flex-direction: row;
   align-items: center;
 `
 
-const HeroIcon = styled('img')`
+const CharacterIcon = styled('img')`
   width: 32px;
   height: 32px;
 `
 
-const HeroName = styled('div')`
+const CharacterName = styled('div')`
   flex: 1 1 auto;
   height: 100%;
   margin-left: 1rem;
@@ -130,7 +130,7 @@ const HeroName = styled('div')`
   }
 `
 
-const HeroLoading = styled('tr')`
+const CharacterLoading = styled('tr')`
   td {
     height: 48px;
     text-align: center;
