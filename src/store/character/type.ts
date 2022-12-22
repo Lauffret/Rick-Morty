@@ -15,7 +15,7 @@ export interface Character extends ApiResponse {
 
 export type ApiResponse = Record<string, any>
 
-export enum CharatersActionTypes {
+export enum CharactersActionTypes {
   FETCH_REQUEST = '@@heroes/FETCH_REQUEST',
   FETCH_SUCCESS = '@@heroes/FETCH_SUCCESS',
   FETCH_ERROR = '@@heroes/FETCH_ERROR',
@@ -23,8 +23,8 @@ export enum CharatersActionTypes {
   SELECTED = '@@heroes/SELECTED'
 }
 
-export interface CharatersState {
+export interface CharactersState {
   readonly loading: boolean
-  readonly data: Charater[]
+  readonly data: Character[]
   readonly errors?: string
 }
